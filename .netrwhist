@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/tony/projects/perl6-rest-server/lib/HTTP/Server'
+let g:netrw_dirhist_2='/Users/tony/projects/perl6-http-server-async/lib/HTTP/Server/Async'
+let g:netrw_dirhist_3='/Users/tony/projects/py-magpie/.git'
+let g:netrw_dirhist_4='/Users/tony/projects/py-magpie/magpie/config'
