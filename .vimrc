@@ -3,6 +3,7 @@ colorscheme grb256
 set si
 set nu
 set nowrap
+set backspace=2
 set tabstop=2
 set expandtab
 set shiftwidth=2
