@@ -17,6 +17,7 @@ set showmatch
 set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 set statusline=\ %F%m%r%h\ %w\ \ %r%{getcwd()}%h%=%c,%l/%L\ %P 
 set ls=2
+filetype plugin on
 call pathogen#infect()
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
