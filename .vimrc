@@ -1,5 +1,5 @@
 syntax on
-colorscheme grb256
+"colorscheme grb256
 set si
 set nu
 set nowrap
