@@ -85,3 +85,6 @@ let b:match_skip = 's:comment\|string\|perlQQ\|perlShellCommand\|perlHereDoc\|pe
 
 " Restore the saved compatibility options.
 let &cpo = s:save_cpo
+
+vnoremap <buffer> <localleader>s :HashTidySortRange<cr>
+vnoremap <buffer> <localleader>a :HashTidySortAlignRange<cr>

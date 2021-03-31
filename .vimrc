@@ -1,5 +1,6 @@
 syntax on
 colorscheme grb256
+filetype plugin on
 set si
 set nu
 set nowrap
