@@ -1,5 +1,5 @@
 syntax on
-"colorscheme grb256
+colorscheme nord 
 set si
 set nu
 set nowrap
@@ -22,3 +22,17 @@ call pathogen#infect()
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
 au BufRead,BufNewFile *.pl6 setfiletype perl6
+au BufWritePost *.go !gofmt -w -s -e  %
+
+autocmd BufNewFile,BufRead *.vpm call SetVimPresentation()
+function SetVimPresentation()
+  nnoremap <buffer> <f1> :N<CR> :redraw!<CR> 
+  nnoremap <buffer> <f2> :n<CR> :redraw!<CR>
+  set noshowmode
+  set noruler
+  set shortmess=F
+  set laststatus=0
+  set noshowcmd
+  set nonumber
+  set syntax=vpm
+endfunction

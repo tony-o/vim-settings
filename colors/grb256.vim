@@ -4,6 +4,7 @@ runtime colors/ir_black.vim
 let g:colors_name = "grb256"
 
 hi pythonSpaceError ctermbg=red guibg=red
+hi EndOfBuffer ctermfg=black ctermbg=NONE
 
 hi Comment ctermfg=darkgray
 
