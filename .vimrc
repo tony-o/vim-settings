@@ -24,7 +24,7 @@ autocmd BufNewFile,BufRead *.vb set ft=vbnet
 au BufRead,BufNewFile *.pl6 setfiletype perl6
 au BufWritePost *.go call FormatGo()
 function FormatGo()
-  silent! !goimports -w -e %
+  silent! !goimports -w -local "$(if [[ -f go.mod ]]; then head -n 1 go.mod | perl -pe '$_ =~ s/^module\s*(.+)$/$1/g'; else echo 'xyz'; fi)" -e %
   edit
   redraw!
 endfunction
