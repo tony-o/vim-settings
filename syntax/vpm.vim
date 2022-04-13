@@ -3,8 +3,12 @@ if exists('b:current_syntax')
 endif
 
 syn match bullet '▰'
+syn match bullet '=>'
 syn match bullet "\v(github|twitter|patreon|blog):"
 hi def link bullet Type 
 
 syn match pros "\v(Pros|Cons):"
 hi def link pros Keyword
+
+syn match comment "\v(#|//).*$"
+hi def link comment Comment

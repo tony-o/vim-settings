@@ -1,6 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =4
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/Users/tonyo/Dropbox/projects/rust/lowpass/lowpassd/src/action'
+let g:netrw_dirhist_0='/Users/tonyo/go/src/github.com/alphaflow/institutional-api/grifts/data'
+let g:netrw_dirhist_9='/Users/tonyo/go/src/github.com/alphaflow/institutional-api/grifts/tasks'
+let g:netrw_dirhist_8='/Users/tonyo/go/src/github.com/alphaflow/institutional-api/models'
+let g:netrw_dirhist_7='/Users/tonyo/go/src/github.com/alphaflow/institutional-api/pkg/field-calculator'
+let g:netrw_dirhist_6='/Users/tonyo/Dropbox/projects/js/sudocrew/www/styles'
+let g:netrw_dirhist_5='/Users/tonyo/Dropbox/projects/js/sudocrew/platforms/android/build'
 let g:netrw_dirhist_4='/Users/tonyo/go/src/github.com/alphaflow/institutional-api/models/subservicers/bsi'
 let g:netrw_dirhist_3='/Users/tonyo/go/src/github.com/alphaflow/xxx/dockers/institutional-api'
 let g:netrw_dirhist_2='/Users/tonyo/dropbox/Dropbox/projects/iroc/perl/lib/Iroc'
-let g:netrw_dirhist_1='/Users/tonyo/dropbox/Dropbox/projects/compilers/op/src/util'
