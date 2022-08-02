@@ -17,19 +17,13 @@ set showmatch
 set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 set statusline=\ %F%m%r%h\ %w\ \ %r%{getcwd()}%h%=%c,%l/%L\ %P 
 set ls=2
-let g:gofmt_exe = 'goimports -local "github.com/alphaflow/institutional-api"'
 filetype plugin on
+filetype plugin indent on
 call pathogen#infect()
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
 au BufRead,BufNewFile *.pl6 setfiletype perl6
-"au BufWritePost *.go silent! !gofmt -w -s -e  %
-au BufWritePost *.go call FormatGo()
-function FormatGo()
-  silent! !goimports -w -local "$(if [[ -f go.mod ]]; then head -n 1 go.mod | perl -pe '$_ =~ s/^module\s*(.+)$/$1/g'; else echo 'xyz'; fi)" -e %
-  edit
-  redraw!
-endfunction
+let g:go_fmt_command = 'gofmt'
 
 autocmd BufNewFile,BufRead *.vpm call SetVimPresentation()
 function SetVimPresentation()
@@ -46,3 +40,8 @@ function SetVimPresentation()
   au BufLeave * if !&diff | let b:winview = winsaveview() | endif
   au BufEnter * if exists('b:winview') && !&diff | call winrestview(b:winview) | unlet! b:winview | endif
 endfunction
+
+"autocmd VimEnter * NERDTree | wincmd p
+let g:rustfmt_autosave = 1
+map <ESC>[1;3D :tabp<CR>
+map <ESC>[1;3C :tabn<CR>
