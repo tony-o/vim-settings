@@ -1,3 +1,6 @@
 [submodule "bundle/rust.vim"]
 	path = bundle/rust.vim
 	url = git@github.com:rust-lang/rust.vim.git
+[submodule "bundle/ale"]
+	path = bundle/ale
+	url = git@github.com:dense-analysis/ale.git
