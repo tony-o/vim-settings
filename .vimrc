@@ -23,7 +23,6 @@ call pathogen#infect()
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
 au BufRead,BufNewFile *.pl6 setfiletype perl6
-let g:go_fmt_command = 'gofmt'
 
 autocmd BufNewFile,BufRead *.vpm call SetVimPresentation()
 function SetVimPresentation()
@@ -42,6 +41,18 @@ function SetVimPresentation()
 endfunction
 
 "autocmd VimEnter * NERDTree | wincmd p
-let g:rustfmt_autosave = 1
+"let g:rustfmt_autosave = 1
 map <ESC>[1;3D :tabp<CR>
 map <ESC>[1;3C :tabn<CR>
+
+" ale config
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '!!'
+let g:ale_sign_warning = '--'
+let g:ale_set_highlights = 0
+let g:airline#extensions#ale#enabled = 1
+let g:ale_pattern_options = {
+\ '\.py$': {'ale_linters': ['flake8'], 'ale_fixers': ['autopep8']},
+\ '\.go$': {'ale_linters': ['gofmt'], 'ale_fixers': []},
+\}
+let g:ale_pattern_options_enabled = 1
