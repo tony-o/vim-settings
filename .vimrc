@@ -17,6 +17,7 @@ set showmatch
 set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 set statusline=\ %F%m%r%h\ %w\ \ %r%{getcwd()}%h%=%c,%l/%L\ %P 
 set ls=2
+set re=0
 filetype plugin on
 filetype plugin indent on
 call pathogen#infect()
@@ -42,17 +43,25 @@ endfunction
 
 "autocmd VimEnter * NERDTree | wincmd p
 "let g:rustfmt_autosave = 1
-map <ESC>[1;3D :tabp<CR>
-map <ESC>[1;3C :tabn<CR>
+let os=substitute(system('uname'), '\n', '', '')
+if os == 'Darwin' || os == 'Mac'
+  map <ESC>b :tabp<CR>
+  map <ESC>f :tabn<CR>
+else
+  map <ESC>[1;3D :tabp<CR>
+  map <ESC>[1;3C :tabn<CR>
+endif
 
 " ale config
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '!!'
-let g:ale_sign_warning = '--'
+let g:ale_sign_warning = '##'
 let g:ale_set_highlights = 0
 let g:airline#extensions#ale#enabled = 1
 let g:ale_pattern_options = {
-\ '\.py$': {'ale_linters': ['flake8'], 'ale_fixers': ['autopep8']},
-\ '\.go$': {'ale_linters': ['gofmt'], 'ale_fixers': []},
+\ '\.py$': {'ale_linters':   ['flake8'], 'ale_fixers': ['autopep8', 'black']},
+\ '\.go$': {'ale_linters':   ['gofmt'],  'ale_fixers': ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace']},
+\ '\.tsx?$': {'ale_linters': ['eslint'], 'ale_fixers': ['eslint', 'remove_trailing_lines', 'trim_whitespace']},
 \}
 let g:ale_pattern_options_enabled = 1
+let g:ale_fix_on_save = 1
