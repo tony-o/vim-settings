@@ -1,5 +1,5 @@
 syntax on
-colorscheme grb256
+colorscheme default 
 set si
 set nu
 set nowrap
@@ -14,9 +14,10 @@ set hlsearch
 set lazyredraw
 set magic
 set showmatch
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
-set statusline=\ %F%m%r%h\ %w\ \ %r%{getcwd()}%h%=%c,%l/%L\ %P 
+"let &l:statusline='%1*%#Identifier#«%t»%#ModeMsg# %M%R%f%=%c,%l/%L'
+set statusline=%1*%#Identifier#«%t»%#ModeMsg#\ %M%R%f%=%c,%l/%L
 set ls=2
+set re=0
 filetype plugin on
 filetype plugin indent on
 call pathogen#infect()
@@ -54,42 +55,14 @@ endif
 " ale config
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '!!'
-let g:ale_sign_warning = '--'
+let g:ale_sign_warning = '##'
 let g:ale_set_highlights = 0
 let g:airline#extensions#ale#enabled = 1
 let g:ale_pattern_options = {
-\ '\.py$': {'ale_linters': ['flake8'], 'ale_fixers': ['autopep8', 'black']},
-\ '\.go$': {'ale_linters': ['gofmt'], 'ale_fixers': []},
+\ '\.py$':         {'ale_linters': ['flake8'], 'ale_fixers': ['autopep8', 'black']},
+\ '\.go$':         {'ale_linters': ['gofmt'],  'ale_fixers': ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace']},
+\ '\.tsx?$':       {'ale_linters': ['eslint'], 'ale_fixers': ['eslint', 'remove_trailing_lines', 'trim_whitespace']},
+\ '\.raku(mod)?$': {'ale_linters': [],         'ale_fixers': ['remove_trailing_lines', 'trim_whitespace']},
 \}
 let g:ale_pattern_options_enabled = 1
 let g:ale_fix_on_save = 1
-
-
-function! DoPrettyXML()
-  " save the filetype so we can restore it later
-  let l:origft = &ft
-  set ft=
-  " delete the xml header if it exists. This will
-  " permit us to surround the document with fake tags
-  " without creating invalid xml.
-  1s/<?xml .*?>//e
-  " insert fake tags around the entire document.
-  " This will permit us to pretty-format excerpts of
-  " XML that may contain multiple top-level elements.
-  0put ='<PrettyXML>'
-  $put ='</PrettyXML>'
-  silent %!xmllint --format -
-  " xmllint will insert an <?xml?> header. it's easy enough to delete
-  " if you don't want it.
-  " delete the fake tags
-  2d
-  $d
-  " restore the 'normal' indentation, which is one extra level
-  " too deep due to the extra tags we wrapped around the document.
-  silent %<
-  " back to home
-  1
-  " restore the filetype
-  exe "set ft=" . l:origft
-endfunction
-command! PrettyXML call DoPrettyXML()
