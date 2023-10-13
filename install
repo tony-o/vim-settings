@@ -1,4 +1,4 @@
 #!/bin/bash
 
-git clone https://github.com/tony-o/vim-settings ~/.vim
+git clone --recurse-submodules https://github.com/tony-o/vim-settings ~/.vim
 ln -s ~/.vim/.vimrc ~/.vimrc

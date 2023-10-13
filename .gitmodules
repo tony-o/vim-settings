@@ -4,3 +4,6 @@
 [submodule "bundle/ale"]
 	path = bundle/ale
 	url = git@github.com:dense-analysis/ale.git
+[submodule "pack/plugins/start/supertab"]
+  path = pack/plugsins/start/supertab
+  url = git@github.com:ervandew/supertab.git

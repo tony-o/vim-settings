@@ -1,5 +1,5 @@
 syntax on
-colorscheme default 
+colorscheme grb256
 set si
 set nu
 set nowrap
@@ -24,6 +24,8 @@ call pathogen#infect()
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
 au BufRead,BufNewFile *.pl6 setfiletype perl6
+set wildmode=longest,list,full
+set wildmenu
 
 autocmd BufNewFile,BufRead *.vpm call SetVimPresentation()
 function SetVimPresentation()
@@ -44,12 +46,11 @@ endfunction
 "autocmd VimEnter * NERDTree | wincmd p
 "let g:rustfmt_autosave = 1
 let os=substitute(system('uname'), '\n', '', '')
+map <ESC>[1;3D :tabp<CR>
+map <ESC>[1;3C :tabn<CR>
 if os == 'Darwin' || os == 'Mac'
   map <ESC>b :tabp<CR>
   map <ESC>f :tabn<CR>
-else
-  map <ESC>[1;3D :tabp<CR>
-  map <ESC>[1;3C :tabn<CR>
 endif
 
 " ale config
@@ -62,7 +63,7 @@ let g:ale_pattern_options = {
 \ '\.py$':         {'ale_linters': ['flake8'], 'ale_fixers': ['autopep8', 'black']},
 \ '\.go$':         {'ale_linters': ['gofmt'],  'ale_fixers': ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace']},
 \ '\.tsx?$':       {'ale_linters': ['eslint'], 'ale_fixers': ['eslint', 'remove_trailing_lines', 'trim_whitespace']},
-\ '\.raku(mod)?$': {'ale_linters': [],         'ale_fixers': ['remove_trailing_lines', 'trim_whitespace']},
+\ '\.raku(mod|test)?$': {'ale_linters': [],         'ale_fixers': ['remove_trailing_lines', 'trim_whitespace']},
 \}
 let g:ale_pattern_options_enabled = 1
 let g:ale_fix_on_save = 1
