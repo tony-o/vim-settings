@@ -62,8 +62,10 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_pattern_options = {
 \ '\.py$':         {'ale_linters': ['flake8'], 'ale_fixers': ['autopep8', 'black']},
 \ '\.go$':         {'ale_linters': ['gofmt'],  'ale_fixers': ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace']},
-\ '\.tsx?$':       {'ale_linters': ['eslint'], 'ale_fixers': ['eslint', 'remove_trailing_lines', 'trim_whitespace']},
+\ '\.tsx$':        {'ale_linters': ['tslint'], 'ale_fixers': ['prettier', 'tslint', 'remove_trailing_lines', 'trim_whitespace']},
+\ '\.ts$':         {'ale_linters': ['tslint'], 'ale_fixers': ['prettier', 'tslint', 'remove_trailing_lines', 'trim_whitespace']},
 \ '\.raku(mod|test)?$': {'ale_linters': [],         'ale_fixers': ['remove_trailing_lines', 'trim_whitespace']},
 \}
 let g:ale_pattern_options_enabled = 1
 let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
