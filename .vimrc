@@ -1,5 +1,5 @@
 syntax on
-colorscheme grb256
+colorscheme nord
 set si
 set nu
 set nowrap
@@ -64,6 +64,10 @@ let g:ale_pattern_options = {
 \ '\.go$':         {'ale_linters': ['gofmt'],  'ale_fixers': ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace']},
 \ '\.tsx$':        {'ale_linters': ['tslint'], 'ale_fixers': ['prettier', 'tslint', 'remove_trailing_lines', 'trim_whitespace']},
 \ '\.ts$':         {'ale_linters': ['tslint'], 'ale_fixers': ['prettier', 'tslint', 'remove_trailing_lines', 'trim_whitespace']},
+\ '\.jsx$':        {'ale_linters': ['eslint'], 'ale_fixers': ['prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace']},
+\ '\.js$':         {'ale_linters': ['eslint'], 'ale_fixers': ['prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace']},
+\ '\.svelte$':     {'ale_linters': ['svelteserver'], 'ale_fixers': ['prettier', 'remove_trailing_lines', 'trim_whitespace']},
+\ '\.scad$':       {'ale_linters': [],         'ale_fixers': ['scadformat']},
 \ '\.raku(mod|test)?$': {'ale_linters': [],         'ale_fixers': ['remove_trailing_lines', 'trim_whitespace']},
 \}
 let g:ale_pattern_options_enabled = 1
