@@ -34,10 +34,10 @@ if exists('g:loaded_ale')
   endif
 
   if !exists('b:ale_linter_aliases')
-    let b:ale_linter_aliases = ['css', 'javascript']
+    let b:ale_linter_aliases = ['css', 'javascript', 'svelte']
   endif
 
   if !exists('b:ale_linters')
-    let b:ale_linters = ['stylelint', 'eslint']
+    let b:ale_linters = ['stylelint', 'eslint', 'svelteserver']
   endif
 endif
