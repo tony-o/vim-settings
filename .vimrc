@@ -26,6 +26,7 @@ autocmd BufNewFile,BufRead *.vb set ft=vbnet
 au BufRead,BufNewFile *.pl6 setfiletype perl6
 set wildmode=longest,list,full
 set wildmenu
+cabbrev vb vert sb
 
 autocmd BufNewFile,BufRead *.vpm call SetVimPresentation()
 function SetVimPresentation()
