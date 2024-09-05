@@ -1,5 +1,5 @@
 syntax on
-colorscheme nord
+colorscheme grb256 
 set si
 set nu
 set nowrap
@@ -61,15 +61,16 @@ let g:ale_sign_warning = '##'
 let g:ale_set_highlights = 0
 let g:airline#extensions#ale#enabled = 1
 let g:ale_pattern_options = {
-\ '\.py$':         {'ale_linters': ['flake8'], 'ale_fixers': ['autopep8', 'black']},
-\ '\.go$':         {'ale_linters': ['gofmt'],  'ale_fixers': ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace']},
-\ '\.tsx$':        {'ale_linters': ['tslint'], 'ale_fixers': ['prettier', 'tslint', 'remove_trailing_lines', 'trim_whitespace']},
-\ '\.ts$':         {'ale_linters': ['tslint'], 'ale_fixers': ['prettier', 'tslint', 'remove_trailing_lines', 'trim_whitespace']},
-\ '\.jsx$':        {'ale_linters': ['eslint'], 'ale_fixers': ['prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace']},
-\ '\.js$':         {'ale_linters': ['eslint'], 'ale_fixers': ['prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace']},
-\ '\.svelte$':     {'ale_linters': ['svelteserver'], 'ale_fixers': ['prettier', 'remove_trailing_lines', 'trim_whitespace']},
-\ '\.scad$':       {'ale_linters': [],         'ale_fixers': ['scadformat']},
-\ '\.raku(mod|test)?$': {'ale_linters': [],         'ale_fixers': ['remove_trailing_lines', 'trim_whitespace']},
+\ '\.py$':         {'ale_linters':      ['flake8'],       'ale_fixers': ['autopep8', 'black']},
+\ '\.go$':         {'ale_linters':      ['gofmt'],        'ale_fixers': ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace']},
+\ '\.tsx$':        {'ale_linters':      ['tslint'],       'ale_fixers': ['prettier', 'tslint', 'remove_trailing_lines', 'trim_whitespace']},
+\ '\.ts$':         {'ale_linters':      ['tslint'],       'ale_fixers': ['prettier', 'tslint', 'remove_trailing_lines', 'trim_whitespace']},
+\ '\.jsx$':        {'ale_linters':      ['eslint'],       'ale_fixers': ['prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace']},
+\ '\.js$':         {'ale_linters':      ['eslint'],       'ale_fixers': ['prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace']},
+\ '\.svelte$':     {'ale_linters':      ['svelteserver'], 'ale_fixers': ['prettier', 'remove_trailing_lines', 'trim_whitespace']},
+\ '\.scad$':       {'ale_linters':      [],               'ale_fixers': ['scadformat']},
+\ '\.html$':       {'ale_linters':      [],               'ale_fixers': ['prettier']},
+\ '\.raku(mod|test)?$': {'ale_linters': [],               'ale_fixers': ['remove_trailing_lines', 'trim_whitespace']},
 \}
 let g:ale_pattern_options_enabled = 1
 let g:ale_fix_on_save = 1
